@@ -1,0 +1,49 @@
+package APITesting.com.org.api;
+
+import static org.testng.AssertJUnit.assertEquals;
+
+import java.util.HashMap;
+
+import org.testng.annotations.Test;
+
+public class StringProb {
+
+	
+	@Test
+	public static void removeCharOneLine_TestCase() throws Exception {
+			String inputString = "test";
+			String expectedResult = "es";
+			String actaulResult = (String)removeCharOneLine("test", "t");
+			assertEquals(actaulResult, expectedResult);
+	}
+	
+	public static String removeCharOneLine(String input, String result){
+		StringBuilder str = new StringBuilder();
+		return input.replaceAll(String.valueOf(result), "");
+		
+	}
+	
+	@Test
+	public static void removeCharIterateEach_TestCase() throws Exception {
+			String inputString = "test";
+			String expectedResult = "tst";
+			String actaulResult = (String)removeCharOneLine("test", "e");
+			assertEquals(actaulResult, expectedResult);
+	}
+	
+	public static String removeCharIterateEach(String input, char result){
+		StringBuilder str = new StringBuilder();
+		//return input.replaceAll(String.valueOf(result), "");
+		
+		for(int i=0;i<input.length()-1;i++){
+			
+			if(input.charAt(i)!= result){
+				str.append(input.charAt(i));
+			}
+		}
+		String resultstr =str.toString();
+		return resultstr;
+		
+	}
+
+}
